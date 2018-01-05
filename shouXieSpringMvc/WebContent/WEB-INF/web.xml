@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>shouXieSpringMvc</display-name>
+  <servlet>  
+        <servlet-name>DispatcherServlet</servlet-name><!--在DispatcherServlet的初始化过程中，框架会在web应用的 WEB-INF文件夹下寻找名为[servlet-name]-servlet.xml 的配置文件，生成文件中定义的bean。-->  
+        <servlet-class>servlet.GPDispatcherServlet</servlet-class> 
+        <init-param>
+           <param-name>scanPackage</param-name>
+           <param-value>demo.mvc</param-value>
+        </init-param> 
+        <load-on-startup>1</load-on-startup><!--是启动顺序，让这个Servlet随Servletp容器一起启动。-->  
+    </servlet> 
+     <servlet-mapping>  
+        <servlet-name>DispatcherServlet</servlet-name>  
+        <url-pattern>*.json</url-pattern> <!--会拦截URL中带“/”的请求。-->  
+    </servlet-mapping> 
+    <welcome-file-list><!--指定欢迎页面-->  
+        <welcome-file>login.html</welcome-file>  
+    </welcome-file-list>   
+</web-app>
